@@ -10,7 +10,7 @@
       <br>
       <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
     </ul>
-    <h2 md-icon="phone">Ecosystem</h2>
+    <h2>Ecosystem</h2>
     <ul>
       <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
@@ -23,7 +23,7 @@
 <script>
 export default {
   name: 'hello',
-  data () {
+  data: function () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }

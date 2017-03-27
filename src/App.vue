@@ -1,8 +1,7 @@
-<template>
-  <div id="app">
-    <Toolbar/>
-    <router-view></router-view>
-  </div>
+<template lang="jade">
+  #app
+    Toolbar
+    router-view
 </template>
 
 <script>
@@ -13,8 +12,10 @@ export default {
   components: {
     Toolbar
   },
-  created: () => {
-    console.log(this.$root)
+  data: function () {
+    return {
+      txt: 'Hello world!'
+    }
   }
 }
 </script>

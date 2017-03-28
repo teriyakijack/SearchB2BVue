@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/proxy_api': {
-          target: 'http://sednaoffice:3001/sdndev/',
+          target: 'http://localhost/sdndev/',
           changeOrigin: true,
           pathRewrite: {
             '^/proxy_api': ''

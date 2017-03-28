@@ -11,7 +11,7 @@ export default {
   },
   data: function () {
     return {
-      baseUrl: '/api/sdndev/m3/api/defaultXML/default.api.asp?action=search&api_mode=app&srh_dest=&SRH_Crew=All&SRH_Type=All&DEPART_DD=27&DEPART_MM=03&DEPART_YYYY=2017&nombjour=7&threedays=false&offset=0&limit=10&token=c7c5151d25b71941adac11d63659bccc',
+      baseUrl: 'proxy_api/m3/api/defaultXML/default.api.asp?action=search&api_mode=app&srh_dest=&SRH_Crew=All&SRH_Type=All&DEPART_DD=27&DEPART_MM=03&DEPART_YYYY=2017&nombjour=7&threedays=false&offset=0&limit=10&token=c7c5151d25b71941adac11d63659bccc',
       msg: 'Welcome to Your Vue.js App'
     }
   },

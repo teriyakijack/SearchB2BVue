@@ -34,7 +34,15 @@ module.exports = {
           pathRewrite: {
             '^/proxy_api': ''
           }
-        }
+        },
+        
+      '/bibliovid': {
+          target: 'http://localhost/sdndev/bibliovid',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/bibliovid': ''
+          }
+      }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

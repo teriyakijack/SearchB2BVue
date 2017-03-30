@@ -1,12 +1,17 @@
 <template lang="jade">
-  div searchResult 
-    md-button.md-raised(@click.native="loadData()") Primary 
-    div.phone-viewport 
+  div.phone-viewport
+    {{ isEditingMode }}
+    md-button.md-raised(@click.native="loadData()") Primary
+    template(v-if="isLoading")
+      md-spinner.md-indeterminate
+    template(v-else)
       md-list.custom-list.md-triple-line
+        template(v-for="charter in charters")
+          CharterItem(:charter-data="charter", key="charter.boat_id", :toggle-editing="toggleEditMode")
 </template>
 
 <script>
-  import CharterItem from '@/components/SearchResult'
+  import CharterItem from '@/components/SearchResultItem'
   import Charter from '@/models/Charter.js'
   import Boat from '@/models/Boat.js'
   import Base from '@/models/Base.js'
@@ -23,6 +28,8 @@
     data: function () {
       return {
         baseUrl: 'proxy_api/m3/api/defaultXML/default.api.asp',
+        isLoading: false,
+        isEditingMode: false,
         data: {
           action: 'search',
           api_mode: 'app',
@@ -45,6 +52,7 @@
     methods: {
       loadData: function () {
         var vm = this
+        vm.isLoading = true
         vm.$http.get(vm.baseUrl + vm.convertFromData(vm.data))
           .then(response => {
             vm.convertXmlToCharter(response.body)
@@ -113,6 +121,11 @@
           vm.charters.push(charter)
         }
         window.xmlDoc = vm.charters
+        vm.isLoading = false
+      },
+      toggleEditMode: function () {
+        var vm = this
+        vm.isEditingMode = !vm.isEditingMode
       }
     }
   }
